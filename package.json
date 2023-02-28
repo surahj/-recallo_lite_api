@@ -1,0 +1,34 @@
+{
+  "name": "recallo_lite_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/surahj/recallo_lite_api.git"
+  },
+  "author": "surahj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/surahj/recallo_lite_api/issues"
+  },
+  "homepage": "https://github.com/surahj/recallo_lite_api#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
+    "express": "^4.18.2",
+    "express-rate-limit": "^3.5.0",
+    "helmet": "^3.16.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.2",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
