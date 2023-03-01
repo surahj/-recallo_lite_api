@@ -38,7 +38,7 @@ const sendErrorProd = (err, res) => {
     // Send generic message
     res.status(500).json({
       status: 'error',
-      message: 'Something went very wrong!'
+      message: 'Something went wrong!'
     });
   }
 };
@@ -52,9 +52,9 @@ module.exports = (err, req, res, next) => {
   if (process.env.NODE_ENV === 'development') {
     sendErrorDev(err, res);
   } else if (process.env.NODE_ENV === 'production') {
-    let error = {  ...err };
+    let error = { ...err };
     if (error.code === 11000) error = handleDuplicateFieldsDB(error);
-    if (err.message)
+    if (err.name === 'ValidationError')
       error = handleValidationErrorDB(err);
 
     sendErrorProd(error, res);
