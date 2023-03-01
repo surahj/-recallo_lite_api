@@ -6,11 +6,9 @@ const app = express();
 app.use(cors())
 app.use(express.json())
 
-const secret = process.env.JWT_SECRET;
-const encodedSecret = () => Buffer.from(secret).toString('base64');
 
 app.get('/', (req, res) => {
-  res.send('status OK');
+  res.send('Welcome to recallo api');
 });
 
 app.post('/signup', authController.signup)
