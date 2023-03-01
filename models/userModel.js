@@ -3,12 +3,8 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
-const secret = process.env.JWT_SECRET;
-const encodedSecret = Buffer.from(secret).toString('base64');
-
-
 const userSchema = new mongoose.Schema({
-  businessName: {
+  name: {
     type: String,
     required: [true, 'Please tell us your name!']
   },
@@ -49,6 +45,13 @@ userSchema.pre('save', async function(next) {
   this.passwordConfirm = undefined;
   next();
 });
+
+userSchema.methods.correctPassword = async function(
+  candidatePassword,
+  userPassword
+) {
+  return await bcrypt.compare(candidatePassword, userPassword);
+};
 
 const User = mongoose.model('User', userSchema);
 
